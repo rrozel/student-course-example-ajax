@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery.js"></script>
+<script type="text/javascript"><!--
+function get_XmlHttp()
+{
+	var xmlHttp = null;
+	
+	if(window.XMLHttpRequest)	// for Firefox, IE7+, Opera, Safari, ...
+	{
+		xmlHttp = new XMLHttpRequest();
+	}
+	else if(window.ActiveXObject)	// for Internet Explorer 5 or 6
+	{
+		xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	
+	return xmlHttp;
+}
+
+// sends data to a php file, via POST, and displays the received answer
+function ajaxrequest(php_file, tagID)
+{
+	var request =  get_XmlHttp();
+	
+	var params = $("form").serialize();
+	request.open("POST", php_file, true);
+	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	request.send(params);
+
+	request.onreadystatechange = function()
+	{
+		if (request.readyState == 4)
+		{
+			document.getElementById(tagID).innerHTML = request.responseText;
+		}
+	}
+}
+--></script>
+</head>
+<body>
+<a href="index2.html">Click to view/update student info.</a>
+<p><b>Enter course, instructor name and up to 2 textbooks for this course:</b></p>
+<form> 
+ <table> 
+ <tr><td>Course:</td><td><input type="text" name="course" /></td></tr>
+ <tr><td>Instructor Name:</td><td><input type="text" name="instr_name" /></td></tr> 
+ <tr><td><p></td></tr>
+ <tr><td>Title:</td><td><input type="text" name="title1" /></td></tr> 
+ <tr><td>Publisher:</td><td><input type="text" name="publ1" /></td></tr> 
+ <tr><td>Edition:</td><td><input type="text" name="edition1" /></td></tr> 
+ <tr><td>Print Date:</td><td><input type="text" name="date1" /></td></tr>
+ <tr><td><p></td></tr>
+ <tr><td>Title #2:</td><td><input type="text" name="title2" /></td></tr> 
+ <tr><td>Publisher #2:</td><td><input type="text" name="publ2" /></td></tr> 
+ <tr><td>Edition #2:</td><td><input type="text" name="edition2" /></td></tr> 
+ <tr><td>Print Date #2:</td><td><input type="text" name="date2" /></td></tr> 
+ <tr><td colspan="2" align="center"><input type="button" onclick="ajaxrequest('courses.php', 'out_element')" value="Submit" /></td></tr> 
+ 
+ </table> 
+ </form>
+<b><div id="out_element"></div></b>
+</body>
+</html>

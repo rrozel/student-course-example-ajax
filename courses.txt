@@ -1,0 +1,22 @@
+[CS101]
+instr_name = Teacher One
+title1 = Book1
+publ1 = Pub1
+edition1 = Ed1
+date1 = Date1
+title2 = Book1
+publ2 = Pub1
+edition2 = Ed1
+date2 = Date1
+
+[CS102]
+instr_name = Teacher Two
+title1 = Book1
+publ1 = Pub1
+edition1 = Ed1
+date1 = Date1
+title2 = Book1
+publ2 = Pub1
+edition2 = Ed1
+date2 = Date1
+

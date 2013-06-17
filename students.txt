@@ -1,0 +1,13 @@
+[Bob Jones]
+c = CS101
+t1 = Book2
+p1 = Pub2
+e1 = Ed2
+d1 = Date2
+book_correct1 = 1
+t2 = Book1
+p2 = Pub1
+e2 = Ed1
+d2 = Date1
+book_correct2 = 1
+
